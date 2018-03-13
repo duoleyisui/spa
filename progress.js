@@ -5,15 +5,17 @@ var reload = document.getElementById("reload");
 var timer = 0;
 
 start.onclick = function() {
-	timer = window.setInterval(function() {
-		console.log(progress.value);
-		if (progress.value === 100) {
-			alert("任务完成!");
-			clearInterval(timer);
-		} else {
-			progress.value++;
-		}
-	}, 100);
+	if (timer === 0) {
+		timer = window.setInterval(function() {
+			console.log(progress.value);
+			if (progress.value === 100) {
+				alert("任务完成!");
+				clearInterval(timer);
+			} else {
+				progress.value++;
+			}
+		}, 100);
+	}
 }
 
 pause.onclick = function() {
